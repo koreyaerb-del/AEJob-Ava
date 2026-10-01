@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TAP Founders Cheat Sheet</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: a working interview brief. Blue TAP header strip, quick-jump chips, then dense two-column sections a reader can scan mid-call. */
+:root{
+  --bg:#F4F6FA; --surface:#FFFFFF; --ink:#0D1830; --muted:#55617A; --line:#D8DFEB;
+  --blue:#1557E6; --blue-ink:#0B40B5; --blue-wash:#E8EFFE;
+  --signal:#F2B705; --signal-ink:#6A4D00; --signal-wash:#FFF6D6;
+  --hero-a:#0B3FB8; --hero-b:#1A63F0;
+  --f-display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#09101E; --surface:#101A2D; --ink:#E7EDF7; --muted:#98A6BF; --line:#233150;
+  --blue:#5A8CFF; --blue-ink:#9DBBFF; --blue-wash:#132449;
+  --signal:#F5C63A; --signal-ink:#F5C63A; --signal-wash:#2A2410;
+  --hero-a:#0A2C80; --hero-b:#1446B8; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#09101E; --surface:#101A2D; --ink:#E7EDF7; --muted:#98A6BF; --line:#233150;
+  --blue:#5A8CFF; --blue-ink:#9DBBFF; --blue-wash:#132449;
+  --signal:#F5C63A; --signal-ink:#F5C63A; --signal-wash:#2A2410;
+  --hero-a:#0A2C80; --hero-b:#1446B8; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15.5px;line-height:1.55;margin:0}
+a{color:var(--blue-ink)}
+.wrap{max-width:1100px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--f-display);margin:0;line-height:1.1;text-wrap:balance}
+h2{font-size:clamp(24px,3.4vw,32px);font-weight:800;font-stretch:88%}
+h3{font-size:17px;font-weight:700;font-stretch:95%}
+p{margin:0}
+ul{margin:0;padding-left:18px;display:grid;gap:6px}
+.eyebrow{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-ink);font-weight:600}
+:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+
+header{background:linear-gradient(160deg,var(--hero-b),var(--hero-a));color:#fff;padding-block:32px 36px}
+header h1{font-size:clamp(34px,5.4vw,56px);font-weight:900;font-stretch:80%;letter-spacing:-.01em}
+header .meta{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:18px;font-family:var(--f-mono);font-size:13px}
+header .meta div{display:grid;gap:2px}
+header .meta span{opacity:.72;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+header .lede{margin-top:16px;max-width:68ch;opacity:.92}
+
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+nav div{max-width:1100px;margin:0 auto;padding:10px 20px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+nav a{white-space:nowrap;text-decoration:none;font-size:13.5px;font-weight:500;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:5px 12px}
+nav a:hover{border-color:var(--blue);color:var(--blue-ink)}
+
+section{padding-block:44px 0}
+.head{display:grid;gap:6px;margin-bottom:18px}
+.head p.sub{color:var(--muted);max-width:70ch}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;min-width:0}
+.card h3{margin-bottom:8px}
+.card p+p{margin-top:8px}
+.muted{color:var(--muted)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.g2>*,.g3>*{min-width:0}
+
+.pitch{background:var(--signal-wash);border:1px solid var(--signal);border-radius:var(--r);padding:20px 22px}
+.pitch p{font-size:16.5px;max-width:80ch}
+.pitch .eyebrow{color:var(--signal-ink);margin-bottom:8px;display:block}
+
+.person{display:grid;gap:10px}
+.person .role{font-family:var(--f-mono);font-size:12px;color:var(--blue-ink);font-weight:600}
+.person .how{background:var(--blue-wash);border-radius:8px;padding:12px 14px;font-size:14.5px}
+.person .how b{color:var(--blue-ink)}
+
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.facts div{background:var(--surface);padding:16px}
+.facts strong{display:block;font-family:var(--f-display);font-stretch:80%;font-size:28px;font-weight:800;color:var(--blue-ink);line-height:1.1;font-variant-numeric:tabular-nums}
+.facts span{font-size:13px;color:var(--muted);display:block;margin-top:4px}
+
+.steps{counter-reset:s;list-style:none;padding:0;display:grid;gap:8px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start}
+.steps li::before{content:counter(s);font-family:var(--f-mono);font-weight:600;font-size:12px;background:var(--blue);color:#fff;border-radius:50%;width:24px;height:24px;display:grid;place-items:center}
+
+.comp{width:100%;border-collapse:collapse;font-size:14.5px}
+.comp td{padding:9px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.comp td:first-child{font-weight:600;width:38%;padding-right:12px}
+.comp tr:last-child td{border-bottom:0}
+
+/* Terms */
+.filter{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.filter input{font:15px var(--f-body);padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);min-width:0;flex:1 1 240px;max-width:360px}
+.filter button{font:500 13.5px var(--f-body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer}
+.filter button[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+.terms{display:grid;grid-template-columns:repeat(2,1fr);gap:0 28px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:6px 20px}
+.term{display:grid;grid-template-columns:150px 1fr;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);min-width:0}
+.term dt{font-family:var(--f-mono);font-weight:600;font-size:13.5px;color:var(--blue-ink)}
+.term dt small{display:block;font-family:var(--f-body);font-weight:500;color:var(--muted);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;margin-top:2px}
+.term dd{margin:0;font-size:14.5px}
+.term dd i{color:var(--muted)}
+.empty{padding:16px 0;color:var(--muted)}
+
+/* Q&A */
+.qa{display:grid;gap:10px}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;display:grid;grid-template-columns:36px 1fr;gap:4px 12px}
+.q .n{font-family:var(--f-mono);font-weight:600;color:var(--blue-ink);font-size:13px;padding-top:2px}
+.q h3{font-size:16px;font-family:var(--f-body);font-weight:600;font-stretch:100%}
+.q p{grid-column:2;font-size:14.5px;color:var(--muted)}
+.q p b{color:var(--ink);font-weight:600}
+.q.flag{border-color:var(--signal);background:var(--signal-wash)}
+.q.flag .n{color:var(--signal-ink)}
+.ask{display:grid;gap:8px}
+.ask li{font-size:15px}
+.ask li i{color:var(--muted);font-style:normal;display:block;font-size:13.5px}
+
+.comp-l{display:grid;gap:0}
+.comp-l div{display:grid;grid-template-columns:130px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.comp-l div:last-child{border-bottom:0}
+.comp-l b{font-family:var(--f-mono);font-size:13px;color:var(--blue-ink)}
+
+.check{list-style:none;padding:0;display:grid;gap:8px}
+.check li{display:grid;grid-template-columns:22px 1fr;gap:8px;align-items:start}
+.check li::before{content:"";width:14px;height:14px;border:2px solid var(--blue);border-radius:3px;margin-top:4px}
+
+.sources{font-size:12.5px;color:var(--muted);margin-block:48px 40px;border-top:1px solid var(--line);padding-top:14px}
+
+@media (max-width:860px){.g2,.g3,.terms{grid-template-columns:1fr}.facts{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.facts{grid-template-columns:1fr}.term{grid-template-columns:1fr;gap:2px}.comp-l div{grid-template-columns:1fr;gap:2px}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow" style="color:#fff;opacity:.8">Interview cheat sheet &middot; Korey Erb</p>
+    <h1>TAP founders interview</h1>
+    <div class="meta">
+      <div><span>When</span>Thu Oct 1, 2026 &middot; 2:00 pm Arizona time</div>
+      <div><span>With</span>Jason Spyres (CEO) &amp; Tim Raftis (Co-founder)</div>
+      <div><span>Role</span>Senior Enterprise AE &middot; West</div>
+      <div><span>Product</span>Ava, the TAP AI Interviewer</div>
+    </div>
+    <p class="lede">Jason called you the same evening you applied, so they already like your resume. This conversation is about three things: can you open doors at big manufacturers, can you run an enterprise deal to a paid pilot and a contract, and will you thrive as their first enterprise seller.</p>
+  </div>
+</header>
+
+<nav aria-label="Sections"><div>
+  <a href="#pitch">Your opener</a><a href="#founders">The founders</a><a href="#tap">TAP</a><a href="#ava">Ava</a><a href="#role">The role</a><a href="#numbers">Numbers</a><a href="#terms">Terms</a><a href="#they-ask">They may ask</a><a href="#you-ask">You ask</a><a href="#rivals">Competitors</a><a href="#checklist">Checklist</a>
+</div></nav>
+
+<main class="wrap">
+
+<section id="pitch">
+  <div class="pitch">
+    <span class="eyebrow">Your 45-second opener: &ldquo;Tell us about yourself&rdquo;</span>
+    <p>I&rsquo;ve spent 20-plus years selling to the HR and benefits leaders at Fortune 500 companies, from Bank of America and Aetna to 3M and Canadian Pacific. I co-founded LearnYour Benefits and took it from zero to $450K in ARR and a $5M valuation in under three years without outside money, with about 95% of clients renewing. Today I also build conversational AI: I design and deploy live voice agents for businesses. So Ava is exactly the kind of product I want to sell: an AI voice agent, sold to the HR buyers I&rsquo;ve worked with my whole career, solving a problem every plant leader is feeling right now.</p>
+  </div>
+</section>
+
+<section id="founders">
+  <div class="head"><p class="eyebrow">Who you&rsquo;re meeting</p><h2>The founders</h2></div>
+  <div class="g2">
+    <div class="card person">
+      <h3>Jason Spyres</h3>
+      <div class="role">CEO &middot; posted the role &middot; called you personally</div>
+      <ul>
+        <li>Stanford computer science graduate with an AI concentration (per 8VC).</li>
+        <li>Public story: taught himself advanced math and science while incarcerated, using Khan Academy materials his mother sent. Published in 100+ newspapers on education and prison reform. Admitted to Stanford in 2017.</li>
+        <li>Belief behind TAP: &ldquo;ALL PEOPLE are teachable.&rdquo; Recurring speaker at the ASU+GSV Summit.</li>
+        <li>His LinkedIn post: Ava is &ldquo;already live with Fortune 500 manufacturers&rdquo;; &ldquo;demand is moving faster than we planned&rdquo;; &ldquo;first of several announcements.&rdquo;</li>
+      </ul>
+      <div class="how"><b>How to connect:</b> he&rsquo;s mission-first and a builder. Talk about putting people into careers they never thought they could reach. Let him raise his own story; if he does, tie it to why the mission matters to you, and keep it brief and sincere.</div>
+    </div>
+    <div class="card person">
+      <h3>Tim Raftis</h3>
+      <div class="role">Co-founder &middot; leads product, design and marketing</div>
+      <ul>
+        <li>Five years at Affinity (relationship-intelligence CRM for private capital), helping grow it from $0 revenue through Series B and C, over $100M raised.</li>
+        <li>Before that: product manager launching data and AI products at Palantir. Started at the White House Office of Technology Policy.</li>
+        <li>Product philosophy (from his podcast): build with subject-matter experts, and only use 3D or VR where the senses and space truly matter.</li>
+        <li>Directory listings show him as &ldquo;CPO&rdquo;; his speaker bio says he leads product. Treat him as the product voice in the room.</li>
+      </ul>
+      <div class="how"><b>How to connect:</b> he&rsquo;ll test whether you understand how the product works and whether you&rsquo;ll bring back useful customer feedback. Ask product questions, mention you build voice agents yourself, and show how you&rsquo;d turn what buyers say into roadmap input.</div>
+    </div>
+  </div>
+</section>
+
+<section id="tap">
+  <div class="head"><p class="eyebrow">Company overview</p><h2>TAP (Training All People)</h2><p class="sub">Mission: teach the skills needed for the 21st-century economy and open technical careers to people who never thought they could reach them.</p></div>
+  <div class="g3">
+    <div class="card"><h3>Origins &amp; backing</h3><ul>
+      <li>Announced Sept 2022 through 8VC&rsquo;s Build program. Joe Lonsdale (8VC founder, Palantir co-founder) is a co-founder.</li>
+      <li>Investors: 8VC, GSV Ventures, Stand Together Ventures Lab, Cubit Capital. New funding announced Feb 2026 (amount not disclosed).</li>
+      <li>Member of SEMI, the semiconductor industry association.</li>
+    </ul></div>
+    <div class="card"><h3>Products</h3><ul>
+      <li><b>Technician training:</b> online courses plus VR simulations, web and headset. Claim: training time cut in half.</li>
+      <li><b>Assessments</b> of technician competency.</li>
+      <li><b>Career exploration</b> for students and job seekers.</li>
+      <li><b>AI Interviewer (Ava):</b> the new product you&rsquo;d sell.</li>
+    </ul></div>
+    <div class="card"><h3>Customers &amp; proof</h3><ul>
+      <li><b>Northrop Grumman</b> (Advanced Technology Labs): 45% skill improvement, setup in under an hour, 100% of trainees more confident.</li>
+      <li>Colleges: Austin Community College, Dallas College, SUNY.</li>
+      <li>Ava: &ldquo;Fortune 500 semiconductor and manufacturing companies already use it&rdquo; (job posting). Names not public; ask which you can reference.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section id="ava">
+  <div class="head"><p class="eyebrow">The product you&rsquo;d sell</p><h2>Ava, the TAP AI Interviewer</h2><p class="sub">Tagline from TAP&rsquo;s video: &ldquo;Let Ava handle the screening. You handle the hiring.&rdquo; A voice-enabled, multimodal interview and skills assessment that checks whether a candidate can actually do technical work, at the volume a large employer needs.</p></div>
+  <div class="g2">
+    <div class="card"><h3>How it works</h3><ol class="steps">
+      <li>Upload a job description; TAP generates the skills assessment.</li>
+      <li>Invite candidates by text and email.</li>
+      <li>Candidates take it on demand, on their phone. Ava asks by voice and shows real scenes, like &ldquo;Do you notice any issues with the conveyor?&rdquo;</li>
+      <li>Hiring teams compare candidates in a dashboard.</li>
+      <li>Results sync to the employer&rsquo;s ATS.</li>
+    </ol></div>
+    <div class="card"><h3>What it screens for</h3><ul>
+      <li>Maintenance and field service</li>
+      <li>Skilled trades: electrical, mechanical, blueprint reading</li>
+      <li>Industrial manufacturing: assembly, quality, safety</li>
+    </ul>
+    <h3 style="margin-top:16px">TAP&rsquo;s published results</h3>
+    <ul><li><b>89%</b> less time spent assessing candidates</li><li><b>33%</b> lower hiring costs</li><li><b>16%</b> better employee retention</li><li>Same scenarios for every candidate, for &ldquo;fair, unbiased results&rdquo;</li></ul></div>
+  </div>
+  <p class="muted" style="margin-top:10px;font-size:14px">The full product isn&rsquo;t on TAP&rsquo;s website yet, so expect details you don&rsquo;t know. Saying &ldquo;I&rsquo;d want to learn how you validate that&rdquo; is better than guessing.</p>
+</section>
+
+<section id="role">
+  <div class="head"><p class="eyebrow">From the job posting</p><h2>The role</h2></div>
+  <div class="g2">
+    <div class="card"><h3>What they want</h3><ul>
+      <li>First dedicated enterprise sales hire, working directly with the founders, with a path to lead enterprise sales.</li>
+      <li>Open doors with CHROs, VPs of Talent Acquisition, and plant and operations leaders at the largest industrial employers.</li>
+      <li>Land focused paid pilots (one plant or one role family), then expand to multi-site contracts.</li>
+      <li>Run deals through procurement, legal, security and IT. Clean CRM, honest forecasts.</li>
+      <li>Bring buyer needs back to product: ATS integrations, compliance, reporting, scale.</li>
+      <li>25&ndash;50% travel. Live near a major airport.</li>
+      <li>They will ask you to walk through the doors you can open.</li>
+    </ul></div>
+    <div class="card"><h3>Compensation</h3>
+      <table class="comp"><tbody>
+        <tr><td>Base</td><td>$100K&ndash;$150K</td></tr>
+        <tr><td>Logo bonus</td><td>Significant, uncapped, per new enterprise logo: half at paid-pilot signing, half at annual conversion</td></tr>
+        <tr><td>Commission</td><td>Uncapped, on annual contract value and expansion, with accelerators</td></tr>
+        <tr><td>Year-one OTE</td><td>~$225K&ndash;$325K</td></tr>
+        <tr><td>Equity</td><td>Founding-team-level options; you choose your salary-to-equity mix; extra grants per marquee logo</td></tr>
+        <tr><td>Benefits</td><td>Medical, FSA and life insurance at no cost; unlimited PTO</td></tr>
+      </tbody></table>
+    </div>
+  </div>
+</section>
+
+<section id="numbers">
+  <div class="head"><p class="eyebrow">Factoids to have ready</p><h2>Numbers worth knowing</h2></div>
+  <div class="facts">
+    <div><strong>3.8M</strong><span>US manufacturing jobs to fill by 2033; 1.9M could go unfilled (Deloitte / Manufacturing Institute)</span></div>
+    <div><strong>~26,400</strong><span>semiconductor technician jobs at risk of going unfilled by 2030 (SIA)</span></div>
+    <div><strong>6,000</strong><span>direct jobs TSMC plans across its first three Phoenix fabs; most technician roles need no degree</span></div>
+    <div><strong>100&ndash;140</strong><span>factory hires a week at Boeing in Puget Sound, spring 2026</span></div>
+    <div><strong>3,000+</strong><span>jobs at Tesla&rsquo;s new Semi factory in Nevada, opened Sept 25, 2026</span></div>
+    <div><strong>~3,000</strong><span>jobs at Amkor&rsquo;s $7B Peoria, AZ packaging campus, production in 2028</span></div>
+    <div><strong>Oct 1, 2025</strong><span>California rules on AI in hiring (automated decision systems) took effect</span></div>
+    <div><strong>45%</strong><span>skill improvement at Northrop Grumman with TAP training</span></div>
+  </div>
+</section>
+
+<section id="terms">
+  <div class="head"><p class="eyebrow">Terms to study</p><h2>The vocabulary in the room</h2><p class="sub">Search or filter. The two you asked to save, TA and iCIMS, are first.</p></div>
+  <div class="filter">
+    <input id="term-q" type="search" placeholder="Search terms" aria-label="Search terms">
+    <div role="group" aria-label="Filter terms" style="display:flex;gap:8px;flex-wrap:wrap">
+      <button type="button" id="tf-all" data-c="all" aria-pressed="true">All</button>
+      <button type="button" id="tf-hr" data-c="Hiring" aria-pressed="false">Hiring &amp; HR</button>
+      <button type="button" id="tf-ai" data-c="AI" aria-pressed="false">AI &amp; compliance</button>
+      <button type="button" id="tf-sales" data-c="Sales" aria-pressed="false">Enterprise sales</button>
+      <button type="button" id="tf-mfg" data-c="Manufacturing" aria-pressed="false">Manufacturing</button>
+    </div>
+  </div>
+  <dl class="terms" id="terms-list"></dl>
+</section>
+
+<section id="they-ask">
+  <div class="head"><p class="eyebrow">Be ready for</p><h2>Questions they may ask you</h2><p class="sub">Answer angles, not scripts. Highlighted ones are where they may probe hardest.</p></div>
+  <div class="qa">
+    <div class="q flag"><span class="n">01</span><h3>Walk us through the doors you can open.</h3><p>The posting promises they&rsquo;ll ask this. <b>Name real people you can call this month</b>, with title and company, and be honest about how warm each one is. Group them: HR and benefits leaders from past clients (BofA, Aetna, 3M, Graco, Canadian Pacific, Pfizer); people who can introduce you to manufacturing HR; then the Western accounts you&rsquo;d work through TAP&rsquo;s investors and Northrop.</p></div>
+    <div class="q flag"><span class="n">02</span><h3>You haven&rsquo;t sold HR tech into manufacturing. Why will plant leaders take your call?</h3><p><b>The buyer is HR, and that&rsquo;s your career.</b> You&rsquo;ve sold to CHROs and benefits heads at manufacturers like 3M, Graco, Pfizer and Canadian Pacific. What&rsquo;s new is the plant floor, and you&rsquo;d close that gap the way the site shows: public hiring signals, the buying-committee map, and letting a plant leader take a four-minute Ava interview.</p></div>
+    <div class="q flag"><span class="n">03</span><h3>You run Wide Open Sky AI. Will that compete for your time?</h3><p>Cognite raised this, so expect it. <b>Be direct:</b> this role comes first and is full-time. Say what happens to the side business (scaled back, existing clients only, no conflicts with TAP). Turn it into a plus: you build voice AI, so you understand Ava from the inside.</p></div>
+    <div class="q"><span class="n">04</span><h3>Tell us about your most complex enterprise deal.</h3><p>Bank of America: trackable interactive-video HSA education for 50,000+ employees, signed off by the Global Head of Employee Benefits. <b>Key beat:</b> you won her trust by pushing back instead of agreeing with everything, delivered full scope on budget, and became a go-to vendor.</p></div>
+    <div class="q"><span class="n">05</span><h3>How would you structure a paid pilot that converts?</h3><p>One plant, one role family, 60&ndash;90 days. Baseline captured in discovery. Success criteria in writing. Conversion pricing and enterprise paper agreed before kickoff. Day-30 review with the exec sponsor. Security and legal run alongside the pilot, not after.</p></div>
+    <div class="q"><span class="n">06</span><h3>Early stage means no playbook and no support team. How do you handle that?</h3><p>LearnYour Benefits: zero to $450K ARR and a $5M valuation in under three years, no outside funding, about 95% renewal. You built the brand, website, collateral and pricing yourself at Wide Open Sky AI too.</p></div>
+    <div class="q"><span class="n">07</span><h3>How do you forecast a long enterprise cycle honestly?</h3><p>Stages defined by what the buyer has done, not your activity. Nothing in commit without a named sponsor and a signed pilot scope. Every deal has a dated next step, reviewed weekly with the founders.</p></div>
+    <div class="q"><span class="n">08</span><h3>A buyer&rsquo;s lawyer says AI in hiring is too risky. What do you say?</h3><p>Agree it deserves scrutiny. Ava gives every candidate the same job-based scenarios and scoring, which is what reviewers look for. Bring counsel in during week one, with TAP&rsquo;s bias-testing and data-retention answers ready. Mention California&rsquo;s rules (Oct 2025) to show you know the landscape.</p></div>
+    <div class="q"><span class="n">09</span><h3>What comp are you looking for, and how would you split salary and equity?</h3><p>Decide your number before the call. The posting says base $100&ndash;150K, OTE ~$225&ndash;325K in year one, and you choose the salary-to-equity mix. A safe answer: &ldquo;I&rsquo;m comfortable inside your posted range. Before choosing the mix I&rsquo;d want to understand the logo bonus size and the option terms.&rdquo;</p></div>
+    <div class="q"><span class="n">10</span><h3>Travel is 25&ndash;50%. Does that work?</h3><p>Yes. You&rsquo;re in Arizona and fly out of PHX, and these deals are won in person, which you agree with.</p></div>
+    <div class="q"><span class="n">11</span><h3>Tell us about a deal you lost.</h3><p>Pick a real one. Say what you learned and what you do differently now. Keep it short and own it.</p></div>
+    <div class="q"><span class="n">12</span><h3>What would you need from us in the first months?</h3><p>Time on founder calls, which customers you can reference, the security and legal packet, and a weekly pipeline review. Point to the 120-day plan on your site.</p></div>
+  </div>
+</section>
+
+<section id="you-ask">
+  <div class="head"><p class="eyebrow">Your questions</p><h2>Questions to ask them</h2><p class="sub">Pick two or three for each founder. Save the last one for the end.</p></div>
+  <div class="g2">
+    <div class="card"><h3>For Jason (company &amp; deal)</h3><ol class="ask">
+      <li>Your post said demand is moving faster than planned. Where is it coming from: inbound, your network, or existing customers?<i>Tells you how much is prospecting versus warm pipeline.</i></li>
+      <li>What does the West include, and are there accounts or conversations I&rsquo;d inherit?<i>Clarifies territory and quick wins.</i></li>
+      <li>Which Fortune 500 customers can I reference, and how did those deals start?<i>The entry point that works today.</i></li>
+      <li>What does success look like at 6 and 12 months?<i>Gets their real expectations on the table.</i></li>
+      <li>How is the logo bonus sized, and what counts as &ldquo;conversion&rdquo;?<i>Defines how you get paid.</i></li>
+      <li>You mentioned &ldquo;several announcements.&rdquo; What&rsquo;s coming that I&rsquo;d be selling ahead of?<i>Shows you read his post.</i></li>
+    </ol></div>
+    <div class="card"><h3>For Tim (product)</h3><ol class="ask">
+      <li>How are Ava&rsquo;s scenarios built and validated? Do customers&rsquo; subject-matter experts approve them?<i>Fits his SME-driven approach.</i></li>
+      <li>Which ATS integrations are live: iCIMS, Workday, SuccessFactors?<i>The first IT question every buyer asks.</i></li>
+      <li>How are the 89% and 16% results measured, and over what time frame?<i>So you can defend them in front of a CFO.</i></li>
+      <li>How do you handle bias testing and California&rsquo;s AI-in-hiring rules?<i>Counsel will ask in every deal.</i></li>
+      <li>How do the training products and Ava fit together? Is there a combined offer?<i>Possible land-and-expand path.</i></li>
+      <li>What do you want to hear back from the field most?<i>Shows you&rsquo;ll be a useful product partner.</i></li>
+    </ol></div>
+  </div>
+  <div class="pitch" style="margin-top:14px"><span class="eyebrow">Closing question</span><p>&ldquo;Is there anything in my background that gives you pause about me in this role? I&rsquo;d rather address it now.&rdquo;</p></div>
+</section>
+
+<section id="rivals">
+  <div class="head"><p class="eyebrow">Know the landscape</p><h2>Competitors and how Ava differs</h2></div>
+  <div class="g2">
+    <div class="card comp-l">
+      <div><b>HireVue</b><span>Now sells a voice AI interviewer for hourly hiring. The closest rival. Win on technical depth and job-specific scenarios, not on voice.</span></div>
+      <div><b>Paradox</b><span>Conversational AI for scheduling and screening logistics. Acquired by Workday, Oct 2025, so it may come bundled.</span></div>
+      <div><b>Sapia.ai</b><span>Text-chat interview scoring soft skills and traits. Not a technical assessment.</span></div>
+      <div><b>Harver</b><span>Short situational-judgment tests for factory roles. Measures fit, not technical skill.</span></div>
+      <div><b>Fountain</b><span>Frontline hiring workflow; launched an AI agent, Cue, in 2026. Automates the process, not the skills test.</span></div>
+    </div>
+    <div class="card"><h3>The one-line difference</h3><p>Most tools either move candidates through the process faster or measure personality. Ava checks whether someone can actually talk through a real technical problem: a fault on a conveyor, a safety step, a blueprint. That&rsquo;s what a plant leader cares about.</p>
+    <h3 style="margin-top:16px">Your leave-behind site</h3><p>Have &ldquo;Ava Goes West&rdquo; open in a tab. Useful moments to share it: when they ask about doors (target list), pilots (value model and formula key), and your first months (120-day plan).</p></div>
+  </div>
+</section>
+
+<section id="checklist">
+  <div class="head"><p class="eyebrow">Day of</p><h2>Checklist</h2></div>
+  <div class="g2">
+    <div class="card"><ul class="check">
+      <li>Email to Jason with the site link sent Wednesday morning; link shared so they can open it</li>
+      <li>Your &ldquo;doors I can open&rdquo; list written out with real names</li>
+      <li>Comp number and salary/equity preference decided</li>
+      <li>One-sentence answer on Wide Open Sky AI ready</li>
+    </ul></div>
+    <div class="card"><ul class="check">
+      <li>Site open in a tab, value model loaded</li>
+      <li>Camera, mic and lighting tested; quiet room</li>
+      <li>Two questions for each founder picked</li>
+      <li>Thank-you note to both founders the same day</li>
+    </ul></div>
+  </div>
+</section>
+
+<p class="sources"><b>Sources.</b>
+<a href="https://www.tap3d.com/ai-interviewer">TAP AI Interviewer</a> &middot;
+<a href="https://www.tap3d.com/success-stories/northrop-grumman-pilots-tap-technician-training">Northrop Grumman case</a> &middot;
+<a href="https://www.8vc.com/resources/investing-where-others-have-given-up-announcing-tap-training-all-people">8VC on TAP</a> &middot;
+<a href="https://nationaltoday.com/us/va/arlington-va/news/2026/02/11/ai-powered-workforce-development-platform-tap-raises-funding/">TAP funding, Feb 2026</a> &middot;
+<a href="https://asugsvsummit.com/speakers/jason-spyres">Jason Spyres bio</a> &middot;
+<a href="https://asugsvsummit.com/speakers/tim-raftis">Tim Raftis bio</a> &middot;
+<a href="https://www.emergentproduct.com/p/episode-1-building-extended-reality">Tim Raftis podcast</a> &middot;
+<a href="https://www.hirevue.com/platform/ai-interviewer">HireVue AI Interviewer</a> &middot;
+<a href="https://newsroom.workday.com/2025-10-01-Workday-Completes-Acquisition-of-Paradox">Workday / Paradox</a> &middot;
+<a href="https://www.mayerbrown.com/en/insights/publications/2025/08/california-adopts-new-employment-ai-regulations-effective-october-1-2025">California AI hiring rules</a> &middot;
+<a href="https://themanufacturinginstitute.org/manufacturers-need-as-many-as-3-8-million-new-employees-by-2033/">Manufacturing Institute</a> &middot;
+<a href="https://www.semiconductors.org/america-faces-significant-shortage-of-tech-workers-in-semiconductor-industry-and-throughout-u-s-economy/">SIA</a>
+</p>
+</main>
+
+<script>
+const T=[
+ ["TA","Talent Acquisition","Hiring","The recruiting team inside HR. A “TA leader” is a VP or Director of Talent Acquisition, usually Ava’s best champion."],
+ ["iCIMS","","Hiring","Cloud recruiting software used by large employers. Includes an ATS (iCIMS Hire), a candidate CRM, onboarding, and AI resume parsing and text screening. Ava results would sync into it."],
+ ["ATS","Applicant tracking system","Hiring","Software that tracks every applicant from application to offer. Big ones: iCIMS, Workday Recruiting, SAP SuccessFactors, Oracle. The first integration question in every deal."],
+ ["HRIS","HR information system","Hiring","The system of record for employees (pay, benefits, records). Often owned by a different team than the ATS."],
+ ["CHRO","Chief Human Resources Officer","Hiring","Top HR executive. Usually the economic buyer who signs the enterprise contract."],
+ ["Time-to-hire","","Hiring","Days from a candidate applying to accepting an offer. Time-to-fill is days from the job opening to the offer being accepted."],
+ ["Quality of hire","","Hiring","How good new hires turn out: manager ratings, performance, retention. Hard to measure, which is why pilots set a baseline."],
+ ["Early turnover","90-day attrition","Hiring","New hires who leave in their first weeks or months. Expensive because the training is wasted."],
+ ["Cost per hire","","Hiring","Total recruiting spend divided by hires: ads, agencies, recruiter time, assessments."],
+ ["High-volume hiring","","Hiring","Filling many similar roles fast, such as technicians or assemblers for a plant ramp."],
+ ["Frontline workers","Hourly workers","Hiring","People on the floor: operators, technicians, assemblers. Usually hourly, often no degree required."],
+ ["Skills-based hiring","","Hiring","Hiring on what someone can do rather than degrees or resume keywords. Ava is a skills-based tool."],
+ ["Structured interview","","Hiring","Every candidate gets the same questions, scored the same way. Fairer and easier to defend legally."],
+ ["Candidate CRM","","Hiring","In recruiting, CRM means candidate relationship management: nurturing talent pools, not customers."],
+ ["Multimodal","","AI","AI that works with more than one input type, such as voice, text and images. Ava asks by voice and shows pictures."],
+ ["Voice agent","","AI","AI that holds a spoken conversation. Ava is one; you build them at Wide Open Sky AI."],
+ ["LLM","Large language model","AI","The AI model behind most conversational tools. Buyers worry about it making things up, so explain how answers are scored consistently."],
+ ["ADS","Automated decision system","AI","Legal term for software that helps make employment decisions. California regulates its use in hiring as of Oct 1, 2025."],
+ ["Adverse impact","Disparate impact","AI","When a hiring step screens out a protected group at a much higher rate. Often checked with the “four-fifths rule.”"],
+ ["Four-fifths rule","80% rule","AI","EEOC guideline: if one group’s selection rate is under 80% of the highest group’s, that may signal adverse impact."],
+ ["EEOC","","AI","US Equal Employment Opportunity Commission, which enforces anti-discrimination law in hiring."],
+ ["Bias audit","","AI","An independent test of whether an AI hiring tool treats groups fairly. Some buyers will require one."],
+ ["SOC 2","","AI","An independent security audit report. Enterprise IT teams often ask for it. TAP says it runs annual third-party security audits; ask what they hold."],
+ ["SSO","Single sign-on","AI","Logging into many tools with one company login. A common IT requirement."],
+ ["Paid pilot","","Sales","A short, paid, scoped trial at one site or role family, with written success criteria. TAP pays half the logo bonus when one is signed."],
+ ["Conversion","","Sales","When a pilot turns into an annual or enterprise contract. TAP pays the second half of the logo bonus at conversion."],
+ ["Logo","","Sales","A new customer company. “Landing a logo” means signing a new name."],
+ ["Land and expand","","Sales","Win a small first deal, prove value, then grow across sites and roles."],
+ ["ACV","Annual contract value","Sales","What a contract is worth per year. TAP commission is paid on ACV and expansion."],
+ ["ARR","Annual recurring revenue","Sales","Yearly subscription revenue across all customers."],
+ ["OTE","On-target earnings","Sales","Base plus expected commission and bonus at 100% of goal. TAP posts ~$225–325K in year one."],
+ ["Accelerators","","Sales","Higher commission rates once you pass quota."],
+ ["Named accounts","","Sales","A specific list of companies assigned to you, rather than a geographic free-for-all."],
+ ["Economic buyer","","Sales","The person who controls budget and signs. Usually the CHRO for Ava."],
+ ["Champion","","Sales","The insider who wants the deal to happen and sells it internally. Often the TA leader or a plant manager."],
+ ["Mutual action plan","MAP","Sales","A shared timeline of every step to signature, agreed with the buyer."],
+ ["MSA / SOW","","Sales","Master services agreement (overall legal terms) and statement of work (scope of a specific project or pilot)."],
+ ["MEDDICC","","Sales","Common enterprise qualification framework: Metrics, Economic buyer, Decision criteria, Decision process, Identify pain, Champion, Competition."],
+ ["Fab","","Manufacturing","A semiconductor fabrication plant, like TSMC’s in Phoenix."],
+ ["OEM","Original equipment manufacturer","Manufacturing","A company that builds the final product, such as an automaker."],
+ ["MRO","Maintenance, repair and operations","Manufacturing","Keeping equipment running. In aerospace, also aircraft maintenance and overhaul."],
+ ["Mechatronics","","Manufacturing","Combined mechanical, electrical and controls skills. A core technician job family."],
+ ["PLC","Programmable logic controller","Manufacturing","The industrial computer that runs machines and lines. Troubleshooting PLCs is a common technician skill."],
+ ["Ramp","","Manufacturing","A new plant or line scaling up production, and its hiring."],
+ ["CHIPS Act","","Manufacturing","2022 US law funding domestic chip manufacturing. Behind many new Western fabs."],
+ ["Apprenticeship","","Manufacturing","Paid on-the-job training, often with a union or college. Boeing and Caterpillar run large ones."],
+ ["XR / VR","Extended / virtual reality","Manufacturing","Headset-based simulation. TAP’s training products use it."]
+];
+const list=document.getElementById('terms-list'),q=document.getElementById('term-q');let cat='all';
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function draw(){
+  const k=q.value.trim().toLowerCase();
+  const rows=T.filter(t=>(cat==='all'||t[2]===cat)&&(!k||(t[0]+' '+t[1]+' '+t[3]).toLowerCase().includes(k)));
+  list.innerHTML=rows.length?rows.map(t=>`<div class="term"><dt>${esc(t[0])}${t[1]?`<small>${esc(t[1])}</small>`:''}</dt><dd>${esc(t[3])}</dd></div>`).join(''):'<p class="empty">No terms match. Clear the search to see all of them.</p>';
+}
+q.addEventListener('input',draw);
+document.querySelectorAll('[data-c]').forEach(b=>b.addEventListener('click',()=>{cat=b.dataset.c;document.querySelectorAll('[data-c]').forEach(x=>x.setAttribute('aria-pressed',x===b));draw()}));
+draw();
+</script>
+
+</body>
+</html>
